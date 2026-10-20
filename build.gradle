@@ -1,0 +1,30 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+group = 'com.example.test1'
+version = '1.0.0'
+archivesBaseName = 'test1'
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+            mods { playerhitboxoverlay { source sourceSets.main } }
+        }
+        client {}
+        server {}
+    }
+}
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
+}
+tasks.named('processResources', ProcessResources).configure {
+    var props = [mod_id:'test1', mod_name:'Test1',
+                 mod_version:project.version, mod_authors:'You',
+                 mod_description:'Client-side hitbox outlines for players and modded vehicles.']
+    inputs.properties props
+    filesMatching(['META-INF/mods.toml']) { expand props }
+}
