@@ -1,0 +1,21 @@
+modLoader="javafml"
+loaderVersion="[52,)"
+license="MIT"
+[[mods]]
+modId="test1"
+version="1.0.0"
+displayName="Test1"
+authors="You"
+description='''Client-side hitbox outlines for players and modded vehicles.'''
+[[dependencies.test1]]
+modId="forge"
+mandatory=true
+versionRange="[52,)"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.test1]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.21.1,1.21.2)"
+ordering="NONE"
+side="CLIENT"
